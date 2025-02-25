@@ -1,0 +1,35 @@
+.article-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+
+    &__item {
+        max-width: 320px;
+    }
+}
+
+.article-thumbnail {
+    margin-bottom: 16px;
+
+    &__picture {
+        max-width: 100%;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+
+    &__date {
+        color: var(--grey);
+        font-family: var(--ff-title);
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+    }
+
+    &__likes {
+        text-align: right;
+    }
+}

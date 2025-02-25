@@ -1,0 +1,14 @@
+.hero-section {
+    margin-bottom: 64px;
+
+    &__separator {
+        height: 1px;
+        background: var(--grey-light);
+    }
+
+    &__title {
+        font-size: clamp(32px, 10vw, 128px);
+        font-family: var(--ff-main);
+        text-align: center;
+    }
+}

@@ -1,3 +1,4 @@
+// reset **************************************************
 *,
 ::before,
 ::after {
@@ -14,14 +15,41 @@ a {
 img {
     display: block;
 }
+
+// variables **************************************************
 :root {
+    // colors
     --white: #f7f7ff;
     --black: #1c1c1c;
+    --grey: #959492;
+    --grey-light: #dedddb;
+
+    // fonts
     --ff-main: "Inter", sans-serif;
+    --ff-title: "Noto Serif", serif;
 }
 
+// general **************************************************
 body {
     font-family: var(--ff-main);
     background: var(--white);
     color: var(--black);
+}
+
+main {
+    padding-inline: 32px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--ff-title);
+}
+
+// theme **************************************************
+.section-title {
+    margin-bottom: 32px;
 }
