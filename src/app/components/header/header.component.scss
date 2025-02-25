@@ -1,0 +1,56 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px;
+
+    &__logo {
+        font-size: 18px;
+        font-weight: 700;
+        transition: opacity 0.2s ease-out;
+        padding: 4px;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.main-navigation {
+    display: flex;
+    gap: 16px;
+
+    &__link {
+        position: relative;
+        padding: 8px 16px;
+        border-radius: 4px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            height: 100%;
+            width: 100%;
+            border-radius: 4px;
+            background: var(--black);
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+        }
+
+        &:hover::before {
+            opacity: 0.2;
+        }
+
+        &--reverse {
+            background: var(--black);
+            color: var(--white);
+
+            &::before {
+                background: var(--white);
+                z-index: 0;
+            }
+        }
+    }
+}
