@@ -1,0 +1,13 @@
+.not-found-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__link {
+        transition: opacity 0.2s ease-out;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
