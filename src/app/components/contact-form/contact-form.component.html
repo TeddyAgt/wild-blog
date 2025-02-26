@@ -1,0 +1,108 @@
+<form #contactForm="ngForm" class="contact-form" (ngSubmit)="onSubmit()">
+    <div class="input-group contact-form__input-group">
+        <label for="lastname">Nom</label>
+        <input
+            type="text"
+            name="lastname"
+            id="lastname"
+            [(ngModel)]="newMessage.lastname"
+            #lastname="ngModel"
+            required
+            minlength="2"
+            maxlength="15"
+        />
+        @if (lastname.errors && contactForm.submitted) { @if
+        (lastname.errors["required"]) {
+        <p class="form-error contact-form__form-error">Ce champs est requis</p>
+        } @if (lastname.errors["minlength"]) {
+        <p class="form-error contact-form__form-error">
+            Le nom doit contenir 2 caractères minimum
+        </p>
+        } @if (lastname.errors["minlength"]) {
+        <p class="form-error contact-form__form-error">
+            Le nom doit contenir 15 caractères maximum
+        </p>
+        } }
+    </div>
+
+    <div class="input-group contact-form__input-group">
+        <label for="firstname">Prénom</label>
+        <input
+            type="text"
+            name="firstname"
+            id="firstname"
+            [(ngModel)]="newMessage.firstname"
+            #firstname="ngModel"
+            required
+            minlength="2"
+            maxlength="15"
+        />
+        @if (firstname.errors && contactForm.submitted) { @if
+        (firstname.errors["required"]) {
+        <p class="form-error contact-form__form-error">Ce champs est requis</p>
+        } @if (firstname.errors["minlength"]) {
+        <p class="form-error contact-form__form-error">
+            Le prénom doit contenir 2 caractères minimum
+        </p>
+        }@if (firstname.errors["minlength"]) {
+        <p class="form-error contact-form__form-error">
+            Le prénom doit contenir 15 caractères maximum
+        </p>
+        } }
+    </div>
+
+    <div class="input-group contact-form__input-group">
+        <label for="mail">Adresse mail</label>
+        <input
+            type="email"
+            name="mail"
+            id="mail"
+            [(ngModel)]="newMessage.email"
+            #email="ngModel"
+            required
+            email
+        />
+        @if (email.errors && contactForm.submitted) { @if
+        (email.errors["required"]) {
+        <p class="form-error contact-form__form-error">Ce champs est requis</p>
+        } @if (email.errors["email"]) {
+        <p class="form-error contact-form__form-error">
+            L'adresse mail doit être valide
+        </p>
+        } }
+    </div>
+
+    <div class="input-group contact-form__input-group">
+        <label for="content">Message</label>
+        <textarea
+            name="content"
+            id="content"
+            [(ngModel)]="newMessage.content"
+            #content="ngModel"
+            required
+            minlength="20"
+        ></textarea>
+        @if (content.errors && contactForm.submitted) { @if
+        (content.errors["required"]) {
+        <p class="form-error contact-form__form-error">Ce champs est requis</p>
+        } @if (content.errors["minlength"]) {
+        <p class="form-error contact-form__form-error">
+            Le message doit faire au moins 20 caractères
+        </p>
+        } }
+    </div>
+
+    <!-- <div>
+        Le formulaire est-il soumis ? {{contactForm.submitted}}
+    </div>
+    <div>
+        Le formulaire est-il valide ? {{contactForm.valid}}
+    </div>
+    <div>
+        Le formulaire est-il INvalide ? {{contactForm.invalid}}
+    </div> -->
+    <div class="control-group contact-form__control-group">
+        <button type="submit" class="btn btn--primary">Valider</button>
+        <button type="reset" class="btn btn--black">Réinitialiser</button>
+    </div>
+</form>
