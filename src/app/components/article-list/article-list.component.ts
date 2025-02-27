@@ -2,10 +2,11 @@ import { DatePipe, NgClass, SlicePipe } from "@angular/common";
 import { Component } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import Article from "../../models/article.model";
+import { ArticleThumbnailComponent } from "../article-thumbnail/article-thumbnail.component";
 
 @Component({
     selector: "article-list",
-    imports: [DatePipe, SlicePipe, NgClass, RouterLink],
+    imports: [NgClass, ArticleThumbnailComponent],
     templateUrl: "./article-list.component.html",
     styleUrl: "./article-list.component.scss",
 })

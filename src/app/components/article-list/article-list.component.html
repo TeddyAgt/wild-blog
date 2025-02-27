@@ -1,24 +1,21 @@
 <section class="article-list-section">
-    <h2 class="section-title article-list-section__title">Articles populaires</h2>
+    <h2 class="section-title article-list-section__title">
+        Articles populaires
+    </h2>
 
     <ul class="article-list">
-        @for (article of articles; track article.id) {
-        @if (article.isPublished) {
-        <li class="article-list__item" [ngClass]="{'article-list__item--popular': article.likeCount > 200}">
-            <article class="article-thumbnail">
-                <img [src]="article.image" alt="" class="article-thumbnail__picture">
-                <p class="article-thumbnail__date">{{article.createdAt | date:'dd.MM.yyyy'}}</p>
-                <h3 class="article-thumbnail__title"><a class="article-thumbnail__link"
-                        [routerLink]="['/article', article.id]">{{article.title}}</a>
-                </h3>
-                <p class="article-thumbnail__extrait">{{article.content | slice:0:100}}...</p>
-                <p class="article-thumbnail__likes">{{article.likeCount}}💖</p>
-            </article>
+        @for (article of articles; track article.id) { @if (article.isPublished)
+        {
+        <li
+            class="article-list__item"
+            [ngClass]="{
+                'article-list__item--popular': article.likeCount > 200
+            }"
+        >
+            <app-article-thumbnail [article]="article"></app-article-thumbnail>
         </li>
-        }
-        } @empty {
+        } } @empty {
         <li class="article-list__item">Aucun article pour le moment...</li>
         }
-
     </ul>
 </section>

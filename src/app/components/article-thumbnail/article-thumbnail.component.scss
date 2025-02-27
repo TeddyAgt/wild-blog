@@ -1,0 +1,32 @@
+.article-thumbnail {
+    margin-bottom: 16px;
+    padding: 8px;
+
+    &__picture {
+        max-width: 100%;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+
+    &__date {
+        color: var(--grey);
+        font-family: var(--ff-title);
+        margin-bottom: 8px;
+    }
+
+    &__title {
+        margin-bottom: 16px;
+    }
+
+    &__link {
+        transition: opacity 0.2s ease-out;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    &__likes {
+        text-align: right;
+    }
+}

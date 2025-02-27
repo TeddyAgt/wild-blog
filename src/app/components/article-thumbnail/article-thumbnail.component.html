@@ -1,0 +1,17 @@
+<article class="article-thumbnail">
+    <img [src]="article.image" alt="" class="article-thumbnail__picture" />
+    <p class="article-thumbnail__date">
+        {{ article.createdAt | date : "dd.MM.yyyy" }}
+    </p>
+    <h3 class="article-thumbnail__title">
+        <a
+            class="article-thumbnail__link"
+            [routerLink]="['/article', article.id]"
+            >{{ article.title }}</a
+        >
+    </h3>
+    <p class="article-thumbnail__extrait">
+        {{ article.content | slice : 0 : 100 }}...
+    </p>
+    <p class="article-thumbnail__likes">{{ article.likeCount }}💖</p>
+</article>
