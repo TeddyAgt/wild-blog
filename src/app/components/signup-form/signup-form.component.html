@@ -1,0 +1,106 @@
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()" class="signup-form">
+    <!-- <div class="input-group signup-form__input-group">
+        <label for="lastname">Nom</label>
+        <input type="text" name="lastname" id="lastname" required />
+    </div>
+
+    <div class="input-group signup-form__input-group">
+        <label for="firstname">Prénom</label>
+        <input type="text" name="firstname" id="firstname" required />
+    </div> -->
+
+    <div class="input-group signup-form__input-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input
+            type="text"
+            name="username"
+            id="username"
+            formControlName="username"
+            required
+        />
+        @if (signUpForm.get("username")?.invalid &&
+        signUpForm.get("username")?.touched) { @if
+        (signUpForm.get("username")?.errors?.["required"]) {
+        <p class="form-error signup-form__form-error">
+            Le nom d'utilisateur est requis
+        </p>
+        } @if (signUpForm.get("username")?.errors?.["minlength"]) {
+        <p class="form-error signup-form__form-error">
+            Le nom doit comporter au moins 3 caractères
+        </p>
+        } }
+    </div>
+
+    <div class="input-group signup-form__input-group">
+        <label for="email">Email</label>
+        <input
+            type="email"
+            name="email"
+            id="email"
+            formControlName="email"
+            required
+            email
+        />
+        @if (signUpForm.get("email")?.invalid &&
+        signUpForm.get("email")?.touched) { @if
+        (signUpForm.get("email")?.errors?.["required"]) {
+        <p class="form-error signup-form__form-error">L'email est requis</p>
+        } @if (signUpForm.get("email")?.errors?.["email"]) {
+        <p class="form-error signup-form__form-error">
+            L'adresse mail n'est pas valide
+        </p>
+        } }
+    </div>
+
+    <div
+        formGroupName="passwords"
+        class="input-super-group signup-form__input-super-group"
+    >
+        <div class="input-group signup-form__input-group">
+            <label for="password">Mot de passe</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                formControlName="password"
+                required
+            />
+            @if (signUpForm.get("passwords.password")?.invalid &&
+            signUpForm.get("passwords.password")?.touched) { @if
+            (signUpForm.get("passwords.password")?.errors?.["required"]) {
+            <p class="form-error signup-form__form-error">
+                Le mot de passe est requis
+            </p>
+            }@if
+            (signUpForm.get("passwords.password")?.errors?.["securePassword"]) {
+            <p class="form-error signup-form__form-error">
+                Le mot de passe doit contenir au moins 12 caractères, dont une
+                majuscule, une minuscule, un chiffre et un caractère spécial.
+            </p>
+            } }
+        </div>
+
+        <div class="input-group signup-form__input-group">
+            <label for="confirmPassword">Confirmation de mot de passe</label>
+            <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                formControlName="confirmPassword"
+                required
+            />
+            @if (signUpForm.get("passwords")?.errors?.["passwordsMismatch"] &&
+            signUpForm.get("passwords")?.touched) {
+            <p class="form-error signup-form__form-error">
+                Les mots de passe ne correspondent pas
+            </p>
+            }
+        </div>
+    </div>
+
+    <div class="control-group signup-form__control-group">
+        <button class="btn btn--primary" [disabled]="signUpForm.invalid">
+            Valider
+        </button>
+    </div>
+</form>

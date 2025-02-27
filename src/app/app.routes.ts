@@ -3,10 +3,12 @@ import { ArticlePageComponent } from "./pages/article-page/article-page.componen
 import { ContactPageComponent } from "./pages/contact-page/contact-page.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { NotFoundPageComponent } from "./pages/not-found-page/not-found-page.component";
+import { SignupPageComponent } from "./pages/signup-page/signup-page.component";
 
 export const routes: Routes = [
     { path: "", component: HomePageComponent },
     { path: "article/:id", component: ArticlePageComponent },
     { path: "contact", component: ContactPageComponent },
+    { path: "signup", component: SignupPageComponent },
     { path: "**", component: NotFoundPageComponent },
 ];

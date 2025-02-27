@@ -1,12 +1,36 @@
 <header class="header">
-    <a [routerLink]="['/']" class="header__logo" title="Retour à l'accueil">Cosmo</a>
+    <a [routerLink]="['/']" class="header__logo" title="Retour à l'accueil"
+        >Cosmo</a
+    >
 
     <nav class="main-navigation">
-        <a [routerLink]="['/']" class="main-navigation__link" title="Accueil">Accueil</a>
-        <a [routerLink]="['/articles']" class="main-navigation__link" title="Articles">Articles</a>
-        <a [routerLink]="['/school']" class="main-navigation__link" title="L'école">L'école</a>
-        <a [routerLink]="['/contact']" class="main-navigation__link" title="Contact">Contact</a>
-        <a [routerLink]="['/login']" class="main-navigation__link main-navigation__link--reverse"
-            title="Me connecter">Me connecter</a>
+        <a [routerLink]="['/']" class="main-navigation__link" title="Accueil"
+            >Accueil</a
+        >
+        <a
+            [routerLink]="['/articles']"
+            class="main-navigation__link"
+            title="Articles"
+            >Articles</a
+        >
+        <!-- <a [routerLink]="['/school']" class="main-navigation__link" title="L'école">L'école</a> -->
+        <a
+            [routerLink]="['/contact']"
+            class="main-navigation__link"
+            title="Contact"
+            >Contact</a
+        >
+        <a
+            [routerLink]="['/signup']"
+            class="main-navigation__link"
+            title="M'inscrire"
+            >Inscription</a
+        >
+        <a
+            [routerLink]="['/login']"
+            class="main-navigation__link main-navigation__link--reverse"
+            title="Me connecter"
+            >Me connecter</a
+        >
     </nav>
 </header>
