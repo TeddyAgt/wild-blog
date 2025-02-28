@@ -4,6 +4,7 @@ import { Component, inject } from "@angular/core";
 import { ActivatedRoute, ParamMap, RouterLink } from "@angular/router";
 import { Observable } from "rxjs";
 import Article from "../../models/article.model";
+import { ApiService } from "../../services/api.service";
 
 @Component({
     selector: "app-article-page",
@@ -12,7 +13,7 @@ import Article from "../../models/article.model";
     styleUrl: "./article-page.component.scss",
 })
 export class ArticlePageComponent {
-    http = inject(HttpClient);
+    private apiService = inject(ApiService);
     route: ActivatedRoute = inject(ActivatedRoute);
     articleId!: number;
     article$!: Observable<Article>;
@@ -22,8 +23,6 @@ export class ArticlePageComponent {
             this.articleId = Number(params.get("id"));
         });
 
-        this.article$ = this.http.get<Article>(
-            `http://localhost:3000/articles/${this.articleId}`
-        );
+        this.article$ = this.apiService.getArticleById(this.articleId);
     }
 }

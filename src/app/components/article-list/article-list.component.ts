@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Component, inject } from "@angular/core";
 import { map, Observable, Subscription } from "rxjs";
 import Article from "../../models/article.model";
+import { ApiService } from "../../services/api.service";
 import { ArticleThumbnailComponent } from "../article-thumbnail/article-thumbnail.component";
 
 @Component({
@@ -12,13 +13,13 @@ import { ArticleThumbnailComponent } from "../article-thumbnail/article-thumbnai
     styleUrl: "./article-list.component.scss",
 })
 export class ArticleListComponent {
-    http = inject(HttpClient);
+    private apiService = inject(ApiService);
     articles!: Article[];
     articleSubscription!: Subscription;
 
     getArticles() {
-        this.articleSubscription = this.http
-            .get<Article[]>("http://localhost:3000/articles")
+        this.articleSubscription = this.apiService
+            .getArticles()
             .pipe(
                 map((data: Article[]) =>
                     data.filter((article: Article) => article.isPublished)
