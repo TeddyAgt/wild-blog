@@ -1,6 +1,5 @@
-import { DatePipe, NgClass, SlicePipe } from "@angular/common";
+import { NgClass } from "@angular/common";
 import { Component } from "@angular/core";
-import { RouterLink } from "@angular/router";
 import Article from "../../models/article.model";
 import { ArticleThumbnailComponent } from "../article-thumbnail/article-thumbnail.component";
 
@@ -11,6 +10,15 @@ import { ArticleThumbnailComponent } from "../article-thumbnail/article-thumbnai
     styleUrl: "./article-list.component.scss",
 })
 export class ArticleListComponent {
+    handleSetIsLiked(articleId: number): void {
+        const article =
+            this.articles.find((article) => article.id === articleId) || null;
+        if (article) {
+            article.isLiked = !article.isLiked;
+            article.likeCount += article.isLiked ? 1 : -1;
+        }
+    }
+
     articles: Article[] = [
         {
             id: 1,

@@ -13,5 +13,14 @@
     <p class="article-thumbnail__extrait">
         {{ article.content | slice : 0 : 100 }}...
     </p>
-    <p class="article-thumbnail__likes">{{ article.likeCount }}💖</p>
+
+    <div class="article-thumbnail__likes-container">
+        <button
+            (click)="handleClickLikeBtn(article.id)"
+            class="btn btn--outline article-thumbnail__like-btn"
+        >
+            {{ article.isLiked ? "🩷" : "🖤" }}
+        </button>
+        <p class="article-thumbnail__likes">{{ article.likeCount }}💖</p>
+    </div>
 </article>

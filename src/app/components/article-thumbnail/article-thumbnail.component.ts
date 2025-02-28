@@ -1,5 +1,5 @@
 import { DatePipe, SlicePipe } from "@angular/common";
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { RouterLink } from "@angular/router";
 import Article from "../../models/article.model";
 
@@ -11,4 +11,9 @@ import Article from "../../models/article.model";
 })
 export class ArticleThumbnailComponent {
     @Input() article!: Article;
+    @Output() setLiked: EventEmitter<number> = new EventEmitter<number>();
+
+    handleClickLikeBtn(articleId: number) {
+        this.setLiked.emit(articleId);
+    }
 }

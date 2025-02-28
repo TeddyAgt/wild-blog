@@ -84,6 +84,10 @@ h6 {
     color: var(--white);
 }
 
+.btn--outline {
+    border: 1px solid var(--grey);
+}
+
 // forms **************************************************
 input:not([type="radio"], [type="checkbox"]),
 textarea {

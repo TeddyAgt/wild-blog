@@ -26,6 +26,16 @@
         }
     }
 
+    &__extrait {
+        margin-bottom: 8px;
+    }
+
+    &__likes-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     &__likes {
         text-align: right;
     }

@@ -12,7 +12,10 @@
                 'article-list__item--popular': article.likeCount > 200
             }"
         >
-            <app-article-thumbnail [article]="article"></app-article-thumbnail>
+            <app-article-thumbnail
+                [article]="article"
+                (setLiked)="handleSetIsLiked($event)"
+            ></app-article-thumbnail>
         </li>
         } } @empty {
         <li class="article-list__item">Aucun article pour le moment...</li>
